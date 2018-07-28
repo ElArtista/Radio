@@ -1,4 +1,4 @@
-$(document).keypress(event => {
+$(document).keypress(function(event) {
     if (event.which == KEY_P_UPPER || event.which == KEY_P_LOWER) {
         if (started) {
             if (isPlaying) {

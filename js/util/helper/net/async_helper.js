@@ -15,7 +15,7 @@ function loadSound(url) {
     var request = createCORSRequest('GET', url);
     request.responseType = 'arraybuffer';
 
-    request.onload = () => {
+    request.onload = function() {
         context.decodeAudioData(request.response, function(buffer) {
             playSound(buffer);
         }, onError);

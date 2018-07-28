@@ -1,3 +1,4 @@
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new AudioContext();
 var dispContext = new AudioContext();
 var gainNode;

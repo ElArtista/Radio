@@ -46,7 +46,7 @@ function centerContent() {
     $('#canvas').attr("width", 1568 * resRatio);
 }
 
-$(window).resize(() => { centerContent() });
+$(window).resize(function(){centerContent();});
 centerContent();
 
 $('#artist').css('font-size', $('#artist').css('font-size').replace('px', '') * resRatio + 'px');
@@ -75,7 +75,7 @@ if (song.getGenre() == 'Mirai Sekai') {
             + '.jpg" width="100%">');
 }
 
-$('html').mousemove(event => {
+$('html').mousemove(function(event) {
     if (textHidden) {
         $('.hide').stop(false, true);
         $('.hide').show();

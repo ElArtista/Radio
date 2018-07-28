@@ -3,7 +3,7 @@ var KEY_DOWN = 40;
 var KEY_P_UPPER = 80;
 var KEY_P_LOWER = 112;
 
-$(document).keydown(event => {
+$(document).keydown(function(event) {
     if (event.which == KEY_UP) {
         gainNode.gain.value = Math.min(gainNode.gain.value + volumeStep, 0);
         setCookie('volume', gainNode.gain.value);

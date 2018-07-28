@@ -8,9 +8,9 @@ function loadSong() {
     var path = prefix + '/songs.csv';
     $.ajax({
         url:        path,
-        success:    csv => {
+        success:    function(csv) {
                         var lines = csv.split('\n');
-                        lines.forEach(line => {
+                        lines.forEach(function(line) {
                             try {
                                 var s = new Song(line);
                                 songs[s.getId()] = s;
@@ -29,7 +29,7 @@ function loadSong() {
     if (songName !== undefined) {
         song = songs[songName.toLowerCase()];
     } else if (subgenreName !== undefined) {
-        keys.forEach(key => {
+        keys.forEach(function(key) {
             var track = songs[key];
             if (track.getGenre().toLowerCase() === subgenreName.toLowerCase()) {
                 subArray[i] = track;
@@ -38,7 +38,7 @@ function loadSong() {
         });
         song = subArray[Math.floor(Math.random() * subArray.length)];
     } else if (genreName !== undefined) {
-        keys.forEach(key => {
+        keys.forEach(function(key) {
             var track = songs[key];
             if ((subgenres[track.getGenre()] !== undefined && subgenres[track.getGenre()].toLowerCase() === genreName.toLowerCase())
                     || (track.getGenre().toLowerCase().indexOf(genreName.toLowerCase()) !== -1)) {
@@ -48,7 +48,7 @@ function loadSong() {
         });
         song = subArray[Math.floor(Math.random() * subArray.length)];
     } else if (artistName !== undefined) {
-        keys.forEach(key => {
+        keys.forEach(function(key) {
             var track = songs[key];
             if (track.getArtist().toLowerCase().replace(/\^/g, '') === artistName.toLowerCase()) {
                 subArray[i] = track;
