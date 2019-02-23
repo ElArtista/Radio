@@ -49,6 +49,23 @@ body {
 	-webkit-animation: pulse-fade 2s linear infinite;
 }
 
+#start-stream {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    line-height: 400px;
+    margin-left: -300px;
+    margin-top: -200px;
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    vertical-align: middle;
+    animation: pulse-fade 2s linear infinite;
+    -webkit-animation: pulse-fade 2s linear infinite;
+}
+
 #loading-value {
 	display: none;
 }

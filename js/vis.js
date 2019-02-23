@@ -59,6 +59,9 @@ $('#songinfo').css('padding-top', (blockSize - $('#songinfo').height()) / 2);
 centerContent();
 initSpectrumHandler();
 
+//----------------------------------------------------------------------
+// Specializations
+//----------------------------------------------------------------------
 if (song.getGenre() == 'ayy lmao') {
     $('#cover div').append('<img class="kitty" src="./img/cat.gif" alt="ayy lmao">');
 }
@@ -74,6 +77,7 @@ if (song.getGenre() == 'Mirai Sekai') {
     $('.mvbg').html('<img src="https://i.imgur.com/' + arr[Math.floor(Math.random() * arr.length)]
             + '.jpg" width="100%">');
 }
+//----------------------------------------------------------------------
 
 $('html').mousemove(function(event) {
     if (textHidden) {

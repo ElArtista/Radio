@@ -59,7 +59,7 @@ function playSound(buffer) {
     $('#preloader').fadeOut('slow'); // will fade out the grey DIV that covers the website.
     $("body").addClass("playing");
     $('#spectrum_preloader').hide();
-	$('#loading-info').fadeOut(); // fades out the loading text
+    //$('#loading-info').fadeOut(); // fades out the loading text
     isPlaying = true;
     begun = true;
     started = Date.now();
