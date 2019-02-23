@@ -84,35 +84,46 @@ function checkHideableText() {
     }
 }
 
+function pixelPerfectWidthFit($elem, bw) {
+    var baseWidth = bw || $elem.width();
+    var baseSize = $elem.css('font-size').replace('px', '');
+    if ($elem[0].scrollWidth > baseWidth) {
+        baseSize -= 1;
+        console.log('New size: ' + baseSize);
+        $elem.css('font-size', baseSize + 'px');
+        setTimeout(function() { pixelPerfectWidthFit($elem, baseWidth) }, 150);
+    }
+}
+
 function initGui(song) {
     var $artist = $('#artist');
     var $title = $('#title');
 
     $artist.html('???');
     $title.html('<span>???</span>');
-    document.title = '[vis.js] ??? \u2014 ???';
+    document.title = '??? \u2014 ???';
     if (song != undefined) {
         $artist.html(selectiveToUpperCase(song.getArtist()));
 
-        var baseArtistWidth = $('#songinfo').width();
-        var baseArtistSize = $artist.css('font-size').replace('px', '');
-        while ($artist[0].scrollWidth > baseArtistWidth) {
-            baseArtistSize -= 1;
-            $artist.css('font-size', baseArtistSize + 'px');
-        }
+        //var baseArtistWidth = $('#songinfo').width();
+        //var baseArtistSize = $artist.css('font-size').replace('px', '');
+        //while ($artist[0].scrollWidth > baseArtistWidth) {
+        //    baseArtistSize -= 1;
+        //    $artist.css('font-size', baseArtistSize + 'px');
+        //}
 
 
         $title.html(selectiveToUpperCase("<span>"+song.getTitle().replace('<br>', "</span><br><span>")+"</span>"));
 
-        var maxTitleHeight = $('#cover').height() - ($artist.height() - 10) + 7;
-        var baseTitleSize = $title.css('font-size').replace('px', '');
-        while ($title.height() > maxTitleHeight) {
-            baseTitleSize -= 1;
-            $title.css('font-size', baseTitleSize + 'px');
-        }
+        //var maxTitleHeight = $('#cover').height() - ($artist.height() - 10) + 7;
+        //var baseTitleSize = $title.css('font-size').replace('px', '');
+        //while ($title.height() > maxTitleHeight) {
+        //    baseTitleSize -= 1;
+        //    $title.css('font-size', baseTitleSize + 'px');
+        //}
 
 		var fullTitle = song.getArtist().replace(/\^/g, '') + ' \u2014 ' + song.getTitle().replace('<br>', ' ').replace(/\^/g, '');
-        document.title = '[vis.js] ' + fullTitle;
+        document.title = fullTitle;
         color = getColor(song.getGenre());
 		
 		$('#loading-value').html(fullTitle);
