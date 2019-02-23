@@ -52,9 +52,17 @@ centerContent();
 $('#artist').css('font-size', $('#artist').css('font-size').replace('px', '') * resRatio + 'px');
 $('#title').css('font-size', $('#title').css('font-size').replace('px', '') * resRatio + 'px');
 loadSong();
+initGui(new Song("sand|Ionas Live|With much much love|Liquid Dubstep|0B8_nDMQp-qqCSEV2bFJzY29LNFk"));
 setupAudioNodes();
+
 var prefix = window.location.href.split('/')[0] + '//' + window.location.hostname;
-loadSound(prefix + '/content/uc?export=download&id=' + song.getFileId()); // music file
+//loadSound(prefix + '/content/uc?export=download&id=' + song.getFileId()); // music file
+
+$('#start-stream').click(function() {
+  $('#start-stream').hide();
+  playSound("https://streaming.radionomy.com/DRIVERadio");
+});
+
 $('#songinfo').css('padding-top', (blockSize - $('#songinfo').height()) / 2);
 centerContent();
 initSpectrumHandler();
